@@ -40,7 +40,7 @@ alert('Xin chào các bạn!');
 
 ---
 
-##Bài 11: Một số hàm Built-in
+## Bài 11: Một số hàm Built-in
 
 **Built-in function** nghĩa là hàm cài sẵn, chức năng lập sẵn. Hiểu đơn giản là những hàm được tích hợp sẵn trong ngôn ngữ lập trình.
 
@@ -73,7 +73,7 @@ Hàm Set Interval - Thực thi 1 function sau 1 thời gian định kỳ
 	}, 3000)
 ---
 
-##Bài 12: Làm quen với toán tử
+## Bài 12: Làm quen với toán tử
 
 ### Toán tử số học
 	var a = 1 * 2;
@@ -83,7 +83,7 @@ Hàm Set Interval - Thực thi 1 function sau 1 thời gian định kỳ
 	var fullName = 'Dang Ngoc Son';
 
 
-###Toán tử so sánh
+### Toán tử so sánh
 	var a = 1;
 	var b = 2;
 	
@@ -91,7 +91,7 @@ Hàm Set Interval - Thực thi 1 function sau 1 thời gian định kỳ
 	    alert('Đúng!');
 	}
 
-###Toán tử logic
+### Toán tử logic
 	var a = 1;
 	var b = 2;
 	
@@ -99,26 +99,26 @@ Hàm Set Interval - Thực thi 1 function sau 1 thời gian định kỳ
 	    alert('a & b lớn hơn 0')
 	}
 
-###Bài tập cần chú ý
+### Bài tập cần chú ý
 	var a = '15' - 5;
 Kết quả là 10
 
 ---
 
-##Bài 14: Toán tử số học
+## Bài 14: Toán tử số học
 
-###Bài tập cần chú ý
+### Bài tập cần chú ý
 	var a = 5 + '5'
 Kết quả là ‘55’
 
 ---
 
-##Bài 15: Toán tử (++/--) tiền tố và hậu tố
+## Bài 15: Toán tử (++/--) tiền tố và hậu tố
 
 	var a = 6;
 
-###Trường hợp ++a
-	Việc 1: + 1 cho a, a = a + 1 => a = 7 
+### Trường hợp ++a
+ 	Việc 1: + 1 cho a, a = a + 1 => a = 7 
 	
 	Việc 2: Trả về a sau khi được + 1
 
