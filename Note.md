@@ -186,9 +186,9 @@ Toán tử        		| Ý nghĩa          	|
 --------------------|------------------	|
 ==						|Bằng					|
 !=              		|Không bằng			|
->               		|Lớn hơn				|
+ >               	|Lớn hơn				|
 <						|Nhỏ hơn				|
->=						|Lớn hơn hoặc bằng	|
+ >=						|Lớn hơn hoặc bằng	|
 <=						|Nhỏ hơn hoặc bằng	|
 
 	var a = 1;
