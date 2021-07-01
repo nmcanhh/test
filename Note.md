@@ -41,6 +41,7 @@ alert('Xin chào các bạn!');
 ---
 
 ##Bài 11: Một số hàm Built-in
+
 **Built-in function** nghĩa là hàm cài sẵn, chức năng lập sẵn. Hiểu đơn giản là những hàm được tích hợp sẵn trong ngôn ngữ lập trình.
 
 **Ví dụ 1:**
