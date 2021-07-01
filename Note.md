@@ -40,8 +40,8 @@ alert('Xin chào các bạn!');
 
 ---
 
-## Bài 11: Một số hàm Built-in
 
+## Bài 11: Một số hàm Built-in
 **Built-in function** nghĩa là hàm cài sẵn, chức năng lập sẵn. Hiểu đơn giản là những hàm được tích hợp sẵn trong ngôn ngữ lập trình.
 
 **Ví dụ 1:**
@@ -118,12 +118,12 @@ Kết quả là ‘55’
 	var a = 6;
 
 ### Trường hợp ++a
- 	Việc 1: + 1 cho a, a = a + 1 => a = 7 
+	Việc 1: + 1 cho a, a = a + 1 => a = 7 
 	
 	Việc 2: Trả về a sau khi được + 1
 
 
-###Trường hợp a++
+### Trường hợp a++
 
 	Việc 1: 'a copy', 'a copy' = 6
 	
@@ -131,7 +131,7 @@ Kết quả là ‘55’
 	
 	Việc 3: trả về 'a copy'
 
-###Ví dụ: 
+### Ví dụ: 
 	var output = number++ + --number;
 	console.log(output);
 
@@ -141,7 +141,7 @@ number ban đầu = 6, sau đó number++ thì lấy giá trị 6. Tới lần th
 
 ---
 
-##Bài 16: Toán tử gán
+## Bài 16: Toán tử gán
 
 Toán tử        		| Ví dụ            	| Tương đương           |
 --------------------|------------------	|-----------------------|
@@ -152,7 +152,7 @@ Toán tử        		| Ví dụ            	| Tương đương           |
 /=						|x /= y      			|x = x / y              |
 **=						|x **= y     			|x = x ** y             |
 
-###Ví dụ:
+### Ví dụ:
 
 	var a = 1;
 	a += 2; // a = a + 2
@@ -160,27 +160,27 @@ Toán tử        		| Ví dụ            	| Tương đương           |
 
 ---
 	
-##Bài 17: Toán tử chuỗi
+## Bài 17: Toán tử chuỗi
 
-###Ví dụ 1:
+### Ví dụ 1:
 	var firstName = 'Son';
 	var lastName = 'Dang';
 	console.log(firstName + ' ' + lastName);
-###Ví dụ 2:
+### Ví dụ 2:
 	var name = "Son";
 	name += " Dang";
 	console.log(name);
-###Ví dụ 3:  
+### Ví dụ 3:  
 	var result = 1 + 2 + '3'
 Ở đây 1 + 2 = 3 trước, sau đó 3 sẽ nối chuỗi với ‘3’ thành 33
 
-###Ví dụ 4: 
+### Ví dụ 4: 
 	var result = '3' + 2 + 1
 Ở đây 3 nối chuỗi với 2 thành 32, sau đó 32 nối chuỗi với 1 thành 321
 
 ---
 
-##Bài 18: Toán tử so sánh
+## Bài 18: Toán tử so sánh
 
 Toán tử        		| Ý nghĩa          	|
 --------------------|------------------	|
@@ -202,7 +202,7 @@ Toán tử        		| Ý nghĩa          	|
 	
 ---
 
-##Bài 19: Kiểu dữ liệu Boolean
+## Bài 19: Kiểu dữ liệu Boolean
 
 	var a = 1;
 	var b = 2;
@@ -211,8 +211,8 @@ Toán tử        		| Ý nghĩa          	|
 	
 ---
 
-##Bài 20: Câu điều kiện If	
-###Lưu ý: 6 giá trị dưới đây khi đưa vào if() đều là false, ngoài 6 giá trị dưới đây đều là true
+## Bài 20: Câu điều kiện If	
+### Lưu ý: 6 giá trị dưới đây khi đưa vào if() đều là false, ngoài 6 giá trị dưới đây đều là true
 	0
 	false
 	'' - ""
@@ -220,7 +220,7 @@ Toán tử        		| Ý nghĩa          	|
 	Nan
 	null
 
-###Ví dụ:
+### Ví dụ:
 
 	var fullName = NaN;
 	
@@ -232,7 +232,7 @@ Toán tử        		| Ý nghĩa          	|
 	
 ---
 
-##Bài 21: Toán tử Logical
+## Bài 21: Toán tử Logical
 
 
 Toán tử        		| Ý nghĩa          	|
@@ -241,7 +241,7 @@ Toán tử        		| Ý nghĩa          	|
 l l						| Or: một trong các điều kiện đúng thì đúng
 ! 						| Not: phủ định của 1 điều kiện
 
-###Ví dụ:
+### Ví dụ:
 	var a = 1; 
 	var b = 2;
 	var c = 3;
@@ -252,9 +252,9 @@ l l						| Or: một trong các điều kiện đúng thì đúng
 
 ---
 
-##Bài 22: Kiểu dữ liệu
+## Bài 22: Kiểu dữ liệu
 
-###1. Dữ liệu nguyên thủy
+### 1. Dữ liệu nguyên thủy
 Dữ liệu nguyên thủy là đã tạo ra giá trị thì không sửa được trong vùng nhớ, phải gán giá trị mới để tạo ra vùng nhớ mới chứ không sửa được dữ liệu đã tạo trong vùng nhớ.
 
 Gồm: `Number`, `String`, `Boolen`, `Undefined`, `Null`, `Symbol`
@@ -292,7 +292,7 @@ f) Symbol
 	var id2 = Symbol('id'); //unique
 	console.log(id == id2); //Không giống nhau vì unique
 
-###2. Dữ liệu phức tạp
+### 2. Dữ liệu phức tạp
 Gồm: `Function`, `Object`
 
 a) Function
@@ -322,7 +322,7 @@ Show danh sách thì dùng Array, vì Array không cần khai báo key
 
 ---
 
-##Bài 23: Toán tử so sánh (2)
+## Bài 23: Toán tử so sánh (2)
 
 	=== bằng tuyệt đối
 	!== khác tuyệt đối
@@ -337,12 +337,12 @@ Khi dùng ==, nó chỉ quan tâm tới giá trị của 2 biến. Ví dụ 1 v�
 
 ---
 
-##Bài 24: Truthy và Falsy là gì?
+## Bài 24: Truthy và Falsy là gì?
 
 --- 
 ## Bài 25: Toán tử Logical và câu lệnh điều kiện If?
-###1. Toán tử && (and)
-###Ví dụ 1:
+### 1. Toán tử && (and)
+### Ví dụ 1:
 
 	var a = 1;
 	var b = 2;
@@ -358,14 +358,14 @@ Thì kết quả cho ra sẽ là false. Kết quả này là kết quả kiểm 
 
 Nguyên lý của toán tử && là khi nó check từ trái sang phải, nó check thấy cái nào sai thì nó sẽ báo ngay là false, còn nếu cứ check vào không thấy sai thì nó sẽ lấy kết quả cuối cùng làm kết quả được in ra. Kết quả cuối cùng này có thể là true hay false đều được. 
 
-###Ví dụ 2:
+### Ví dụ 2:
 
 	var result = 'A' && 'B' && 'C';
 	console.log('result', result);
 
 Ở đây kết quả trả về là C. Khi sử dụng toán tử &&, luôn đọc từ vế trái sang phải, vì những giá trị trên đều cho ra true nên mặc định nó sẽ đọc đến cuối dòng và lấy ‘C’ làm kết quả của result. Nhưng nếu B là 1 trong 6 giá trị Falsy thì sẽ lấy giá trị B gán cho result rồi in ra luôn mà không cần chạy sang C.
 
-###Ví dụ 3:
+### Ví dụ 3:
 	
 	var result = 'A' && 'B' && NaN && 'D';
 	if (result) {
@@ -379,20 +379,20 @@ Với những ví dụ trên, ta hiểu rằng khi đầu vào không thỏa mã
 
 ***“Câu lệnh này phải thỏa mãn A và B, câu lệnh không thỏa mãn A thôi thì là không thỏa mãn hết luôn rồi.”***
 	
-###2. Toán tử || (or)
-###Ví dụ 1:
+### 2. Toán tử || (or)
+### Ví dụ 1:
 
 	var result = "A" || "B" || "C" || "D";
 	console.log("result", result);
 	
 Chỉ cần giá trị nào trả về bằng true thì sẽ lấy giá trị đó gán cho result. Ở đây ngay đầu tiên là ‘A’ mang giá trị true nên sẽ gán A làm giá trị của result.
-###Ví dụ 2:
+### Ví dụ 2:
 
 	var result = 'null' || 'B' || 'C' || 'D';
 
 Lấy ‘B’ làm giá trị của result.
 
-###Ví dụ 3:
+### Ví dụ 3:
 
 	result = 'A' || 'B' || 'undefinded' || 'D';
 Lấy ‘A’ làm giá trị của result.
@@ -400,16 +400,16 @@ Lấy ‘A’ làm giá trị của result.
 
 ---
 
-##Bài 26: Chuỗi
+## Bài 26: Chuỗi
 
-###1. Các cách tạo chuỗi
-###Cách 1:
+### 1. Các cách tạo chuỗi
+### Cách 1:
 	var fullName = 'Son Dang';
-###Cách 2:
+### Cách 2:
 	var fullName = new String ('Son Dang');
 	console.log(typeof fullName);
 
-###2. Một số trường hợp sử dụng backslash (\)
+### 2. Một số trường hợp sử dụng backslash (\)
 a) Backslash trước dấu nháy kép để in ra chuỗi chứ cặp nháy kép:
 
 	var fullName = "Son Dang la \"Sieu Nhan\"";
@@ -423,39 +423,39 @@ c) Backslash trước dấu nháy đơn để in ra chuỗi có dấu nháy đơ
 
 	var fullName = 'Son Dang la \'Sieu Nhan\'';
 
-###3. Cách xem độ dài chuỗi
+### 3. Cách xem độ dài chuỗi
 	var fullName = 'Son Dang';
 	console.log(fullName.length);
 
-###4. Chú ý độ dài khi viết code 
+### 4. Chú ý độ dài khi viết code 
 	var fullName = "Một số case sử dụng backslash"
 	+ "Một số case sử dụng backslash"
 	+ "Một số case sử dụng backslash"
 	+ "Một số case sử dụng backslash";
 	console.log(fullName);
 
-###5. Template String ES6 – Nối 2 biến với nhau mà không cần ghi dấu +
+### 5. Template String ES6 – Nối 2 biến với nhau mà không cần ghi dấu +
 	var firstName = "Son";
 	var lastName = "Dang";
 	console.log(`Toi la: ${firstName} ${lastName}`);
 
 ---
 
-##Bài 27: Làm việc với chuỗi
-###1. Độ dài của 1 chuỗi (Length)
+## Bài 27: Làm việc với chuỗi
+### 1. Độ dài của 1 chuỗi (Length)
 	var myString = 'Hoc JS JS JS tai F8!';
 	console.log('Độ dài của chuỗi là: ',myString.length);
 
-###2. Vị trí của ký tự trong chuỗi (Find Index)
+### 2. Vị trí của ký tự trong chuỗi (Find Index)
 
-###Ví dụ 1:
+### Ví dụ 1:
 	console.log('Vị trí của ký tự là: ', myString.indexOf('JS'));
 
 - Trả về -1 nếu không xuất hiện ký tự đó trong chuỗi
 - Đếm ký tự từ 0
 - Nếu trong chuỗi có 2 ký tự giống nhau, nó sẽ trả về vị trí xuất hiện đầu tiên của ký tự trong chuỗi
 
-###Ví dụ 2:
+### Ví dụ 2:
 
 
 	console.log('Vị trí của ký tự là: ', myString.indexOf('JS, 6'));
@@ -464,7 +464,7 @@ Có thể truyền vị trí bắt đầu đếm cho nó
 Nếu trong chuỗi có nhiều ký tự JS, vị trí đầu ra là vị trí của ký tự JS cuối cùng trong chuỗi.
 
 
-###3. Cắt chuỗi (Cut String)
+### 3. Cắt chuỗi (Cut String)
 a) Cắt từ vị trí thứ 4 đến vị trí thứ 6
 
 	console.log(myString.slice(4,6));
@@ -482,7 +482,7 @@ d) Cắt ngược từ trái sang phải
 	console.log(myString.slice(-3, -1));
 
 
-###4. Ghi đè (Replace)
+### 4. Ghi đè (Replace)
 
 a) Nếu có nhiều ký tự JS trong chuỗi thì nó sẽ thay thế cho ký tự JS đầu tiên
 
@@ -492,18 +492,18 @@ b) Thay đổi tất cả ký tự JS trong chuỗi
 
 	console.log(myString.replace(/JS/g, "Javascript"));
 
-###5. Biến chuỗi thành chữ in (Convert to uppercase)
+### 5. Biến chuỗi thành chữ in (Convert to uppercase)
 	console.log(myString.toUpperCase());
 
 
-###6. Biến chuỗi thành chữ thường (Convert to lowercase)
+### 6. Biến chuỗi thành chữ thường (Convert to lowercase)
 	console.log(myString.toLowerCase());
 
 
-###7. Xử lý khoảng trắng đầu và cuối chuỗi (Trim)
+### 7. Xử lý khoảng trắng đầu và cuối chuỗi (Trim)
 	console.log(myString.trim());
 
-###8. Cắt 1 chuỗi thành 1 Array
+### 8. Cắt 1 chuỗi thành 1 Array
 b) Cắt chuỗi thành 1 Array chứa từng chữ
 	
 	var languages = 'Javascript, PHP, Ruby';  // Cần 1 điểm chung là dấu phẩy và dấu cách
@@ -516,15 +516,15 @@ b) Cắt chuỗi thành 1 Array chứa từng ký tự của Javascript
 	console.log(languages1.split(''));
 
 
-###9. Lấy 1 ký tự bởi 1 vị trí cho trước
-###Cách 1:
-
+### 9. Lấy 1 ký tự bởi 1 vị trí cho trước
+### Cách 1:
+ 
 	const myString2 = "Son Dang";
 	console.log(myString2.charAt(2));
 
 Trong trường hợp truyền vào 1 index không tồn tại thì cho ra chuỗi rỗng
 
-###Cách 2:
+### Cách 2:
 
 	console.log(myString2[1]);
 
@@ -532,8 +532,8 @@ Trong trường hợp truyền vào 1 index không tồn tại thì cho ra undef
 
 ---
 
-##Bài 28: Kiểu số
-###1. Cách khai báo
+## Bài 28: Kiểu số
+### 1. Cách khai báo
 
 Cách thông thường khi ta khai báo một số. Ví dụ là: 1000000 (một triệu)
 
@@ -544,7 +544,7 @@ Cũng là khai báo số 1000000 nhưng có cách viết khác. Bạn có thể 
 	var million = 1e6; // tương tự: 1000000
 	var billion = 2e9; // tương tự: 2000000000 (hai tỉ)
 
-###2. Đối tượng Number
+### 2. Đối tượng Number
 
 Phương thức        	| Vai trò          	|
 --------------------|------------------	|
@@ -555,7 +555,7 @@ Number.parseInt()	|Chuyển đổi chuỗi đã cho thành một số nguyên
 Number.prototype.toFixed()	|Chuyển đổi và trả về chuỗi đại diện cho số đã cho, có số chữ số chính xác sau dấu thập phân
 Number.prototype.toString()|	Chuyển đổi và trả về số đã cho dưới dạng chuỗi
 
-###3. Ví dụ
+### 3. Ví dụ
 	
 	Number.isFinite(2 / 0); // false
 	Number.isFinite(20 / 5); // true
@@ -593,24 +593,24 @@ Number.prototype.toString()|	Chuyển đổi và trả về số đã cho dướ
 	
 	
 ---
-##Bài 29: Số và làm việc với số
-###1. Cách tạo giá trị Number
-###Cách 1:
+## Bài 29: Số và làm việc với số
+### 1. Cách tạo giá trị Number
+### Cách 1:
  
 	var age = 18;
 	var PI = 3.14;
 
-###Cách 2: 
+### Cách 2: 
 
 	var otherNumber = new Number(9);
 
-###2. Kiểm tra có phải là Number hay không
+### 2. Kiểm tra có phải là Number hay không
 
 	var result = 20/'ABC';
 	console.log(result); // cho ra kết quả là 1 số không hợp lệ
 	console.log(isNaN(result)); // Check kết quả là NaN
 
-###3. Làm việc với Number
+### 3. Làm việc với Number
 
 a) Chuyển Number sang String (To String)
 
@@ -625,9 +625,9 @@ b) Làm tròn số thập phân (To fixed)
 - Rút gọn bao nhiêu số thập phân thì thêm vào trong PI.toFixed(2), ở đây là làm tròn 2 số thập phân
 	
 ---
-##Bài 30: Mảng
-###1. Cách tạo mảng
-###Cách 1:
+## Bài 30: Mảng
+### 1. Cách tạo mảng
+### Cách 1:
 
 	var languages = [
 	    'Javascript',
@@ -640,7 +640,7 @@ b) Làm tròn số thập phân (To fixed)
 	    {} // object trống
 	];
 
-###Cách 2: (tham khảo chứ không dùng cách này)
+### Cách 2: (tham khảo chứ không dùng cách này)
 
 	var languages1 = new Array(
 	    'Javascript',
@@ -662,7 +662,7 @@ Kiểm tra xem có phải là Array hay không?
 
 Kiểm tra để biết từng trường hợp có nên sử dụng kiểu dữ liệu này hay không?
 
-###Chú ý:
+### Chú ý:
 Khi chúng ta sử dụng typeof thì cả {} và Array đều trả về kiểu dữ liệu là Object.
 
 a) Kiểm tra xem có phải là Array hay không? (boolean)
@@ -680,7 +680,7 @@ c) Lấy phần tử theo Index:
 
 ---
 
-##Bài 31: Làm việc với mảng
+## Bài 31: Làm việc với mảng
 
 	var languages = [
 	     'Javascript',
@@ -688,35 +688,35 @@ c) Lấy phần tử theo Index:
 	     'Ruby'
 	 ];
 
-###1. Chuyển sang dạng String (To String)
+### 1. Chuyển sang dạng String (To String)
 
 	console.log(languages.toString());
 
-###2. Chuyển sang dạng String và có dấu ngăn cách (Join)
+### 2. Chuyển sang dạng String và có dấu ngăn cách (Join)
 	
 	console.log(languages.join('-'));
 
-###3. Xóa element cuối mảng, return element đã xóa đó (Pop)
+### 3. Xóa element cuối mảng, return element đã xóa đó (Pop)
 	
 	console.log(languages.pop());
 	console.log(languages); // Mảng còn lại
 
-###4. Thêm 1 hoặc nhiều element vào cuối mảng (Push)
+### 4. Thêm 1 hoặc nhiều element vào cuối mảng (Push)
 	
 	console.log(languages.push('Dart','Java'));
 	console.log(languages);
   
-###5. Xóa element đầu mảng, return element đã xóa đó (Shift)
+### 5. Xóa element đầu mảng, return element đã xóa đó (Shift)
 	
 	console.log(languages.shift());
 	console.log(languages);
 
-###6. Thêm 1 hoặc nhiều element vào đầu mảng (Unshift)
+### 6. Thêm 1 hoặc nhiều element vào đầu mảng (Unshift)
 
 	console.log(languages.unshift('Dart','Java'));
 	console.log(languages);
 
-###7. Xóa, cắt, chèn 1 phần tử mới vào mảng (Splicing)
+### 7. Xóa, cắt, chèn 1 phần tử mới vào mảng (Splicing)
 
 	languages.splice(1,1);
 splice(vị trí đặt con trỏ, số phần tử muốn xóa kể từ vị trí đặt con trỏ)
@@ -725,7 +725,7 @@ Vị trí đặt con trỏ có thể là 0, 1, 2, 3
 
 
 
-###Xóa phần tử cuối cùng của mảng
+### Xóa phần tử cuối cùng của mảng
 
 	languages.splice(-2);
 
@@ -742,7 +742,7 @@ splice(vị trí đặt con trỏ, số phần tử muốn xóa kể từ vị t
 
 --
 
-###8. Nối 2 mảng với nhau (Concat)
+### 8. Nối 2 mảng với nhau (Concat)
 
 	var languages2 = [
 	    'Dart',
@@ -750,37 +750,37 @@ splice(vị trí đặt con trỏ, số phần tử muốn xóa kể từ vị t
 	]
 	console.log(languages.concat(languages2)); // Nối theo thứ tự
 
-###9. Copy 1 element của mảng (Slicing)
+### 9. Copy 1 element của mảng (Slicing)
 
 	console.log(languages.slice(1,2));
 	slice (vị trí đặt con trỏ điểm đầu, vị trí đặt con trỏ điểm cuối)
 
-###Copy cả mảng
+### Copy cả mảng
 
 	console.log(languages.slice(0));
 
 ---
-##Bài 32: Hàm (Function)
+## Bài 32: Hàm (Function)
 
-###1. Hàm?
+### 1. Hàm?
 - 1 khối mã
 - Làm 1 việc cụ thể
 
-###2. Các loại hàm
+### 2. Các loại hàm
 - Built-in
 - Tự định nghĩa
 
-###3. Tính chất
+### 3. Tính chất
 - Không thực thi khi định nghĩa
 - Sẽ thực thi khi được gọi
 - Có thể nhận tham số
 - Có thể trả về 1 giá trị 
 
-###4. Đặt tên hàm
+### 4. Đặt tên hàm
 - Tên hàm có thể chứa chữ cái từ a-z, A-Z, 0-9, _, $
 - Tên hàm không được đặt số ở đầu tiên
 
-###Ví dụ:
+### Ví dụ:
 
 	function showDialog() {
 	    alert('Hi xin chào các bạn!');
@@ -792,21 +792,21 @@ Gọi hàm
 
 ---
 
-##Bài 33: Tham số trong Function
+## Bài 33: Tham số trong Function
 
 - Khi chúng ta định nghĩa function, giá trị nằm trong function gọi là tham số.
 - Khi chúng ta gọi đến function và truyền giá trị vào, giá trị đó gọi là đối số.
 - Giá trị mà chúng ta truyền vào đó không giới hạn kiểu dữ liệu
 - Tham số được sử dụng trong function, khi đưa ra ngoài sẽ không sử dụng được nữa
 
-###Ví dụ:
+### Ví dụ:
 
     function writeLog(message) {
         console.log(message)
     }
     writeLog('Test Message');
 
-###a) Truyền 2 tham số
+### a) Truyền 2 tham số
 
     function writeLog(message, message2) {
         console.log(message)
@@ -814,7 +814,7 @@ Gọi hàm
     }
     writeLog('Test Message', 'Test_2');
 
-###b) Sử dụng If
+### b) Sử dụng If
 
     function writeLog(message, message2) {
         if (message) {
@@ -826,7 +826,7 @@ Gọi hàm
     }
     writeLog('Test Message', 'Test_2');
 
-###c) Đối tượng Arguments (Array)
+### c) Đối tượng Arguments (Array)
 
 	   function writeLog(){
 	        console.log(arguments)
@@ -835,7 +835,7 @@ Gọi hàm
 
 Không cần phải truyền tham số vào function mà chỉ cần sử dụng arguments. Ở ngoài function, chúng ta gọi lại function và truyền bao nhiêu đối số cũng được.
 
-###d) Vòng For of
+### d) Vòng For of
 
     function writeLog() {
         for (var param of arguments) {
@@ -846,7 +846,7 @@ Không cần phải truyền tham số vào function mà chỉ cần sử dụng
 
 Chạy vòng for và lấy element đầu tiên của Arguments dưới hàm writeLog sau đó truyền vào param. Sau đó chạy vào đoạn code console.log(param) nằm trong function. Có bao nhiêu element trong argument thì chạy bấy nhiêu lần vòng for.
 
-###e) Cho 1 chuỗi myString rỗng. Cứ mỗi lần chạy vòng for thì sẽ cộng thêm 1 param vào myString.
+### e) Cho 1 chuỗi myString rỗng. Cứ mỗi lần chạy vòng for thì sẽ cộng thêm 1 param vào myString.
 
 	function writeLog() {
 	  myString = "";
@@ -859,14 +859,14 @@ Chạy vòng for và lấy element đầu tiên của Arguments dưới hàm wri
 	
 ---
 
-##Bài 34: Tham số trong Function
+## Bài 34: Tham số trong Function
 
-###Lấy kết quả của người dùng nhấn vào OK hay Cancel
+### Lấy kết quả của người dùng nhấn vào OK hay Cancel
 
 	var isConfirm = confirm('Message?');
 	console.log(isConfirm);
 
-###Ví dụ:
+### Ví dụ:
 
 	function cong(a, b) {
 	    return a + b;
@@ -882,9 +882,9 @@ Có thể trả về bất kỳ dữ liệu gì, có thể là mảng `[a, b]` h
  
  ---
  
-##Bài 35: Hiểu hơn về Function
+## Bài 35: Hiểu hơn về Function
 
-###1. Khi function đặt trùng tên
+### 1. Khi function đặt trùng tên
 
 	function showMessage() {
 	  console.log("Message 1");
@@ -899,7 +899,7 @@ Có thể trả về bất kỳ dữ liệu gì, có thể là mảng `[a, b]` h
 
 Chương trình sẽ chạy function cuối cùng.
 
-###2. Khai báo biến trong hàm
+### 2. Khai báo biến trong hàm
 
 	function showMessage() {
 	    var fullName = 'Son Dang';
@@ -909,7 +909,7 @@ Chương trình sẽ chạy function cuối cùng.
 
 Khi định nghĩa 1 biến trong hàm thì phạm vi sử dụng của biến đó cũng chỉ trong hàm.
 
-###3. Định nghĩa hàm trong hàm
+### 3. Định nghĩa hàm trong hàm
 
 	function showMessage() {
 	  function showMessage2() {
@@ -920,9 +920,9 @@ Khi định nghĩa 1 biến trong hàm thì phạm vi sử dụng của biến �
 	showMessage();
 
 
-##Bài 37: Các loại Function
+## Bài 37: Các loại Function
 
-###1. Declaration Function
+### 1. Declaration Function
 
 	function showMessage(){
 	}
@@ -930,13 +930,13 @@ Khi định nghĩa 1 biến trong hàm thì phạm vi sử dụng của biến �
 - Định nghĩa 1 function
 - Bắt buộc đặt tên
 
-###Có thể gọi trước khi đến định nghĩa function
+### Có thể gọi trước khi đến định nghĩa function
 
 	showMessage()
 	function showMessage(){
 	}
 
-###2. Expression function
+### 2. Expression function
 
 	var showMessage2 = function() {
 	}
@@ -944,7 +944,7 @@ Khi định nghĩa 1 biến trong hàm thì phạm vi sử dụng của biến �
 - Được gán cho 1 biến
 - Có thể đặt tên hoặc không 
 
-###Ví dụ:
+### Ví dụ:
 
 	setTimeout(function() {
 	});
@@ -955,7 +955,7 @@ Khi định nghĩa 1 biến trong hàm thì phạm vi sử dụng của biến �
 
 ---
 
-##Bài 38: Object
+## Bài 38: Object
 
 Lữu trữ thông tin của 1 đối tượng cụ thể
 
@@ -972,20 +972,20 @@ emailKey là Key
 
 Cách đặt tên key cũng giống như đặt tên biến, nếu muốn đặt full-name thay vì name thì để ‘full-name’, vẫn hoạt động bình thường.
 
-###Thêm 1 key & value vào object
+### Thêm 1 key & value vào object
 
 	myInfo.email = 'sondn@fullstack.edu.vn';
 
-###Thêm 1 key & value nhưng key sai quy tắc đặt tên
+### Thêm 1 key & value nhưng key sai quy tắc đặt tên
 
 	myInfo.['my-email'] = 'sondn@fullstack.edu.vn'
 
-###Lấy value ra ngoài
-###Cách 1: (bình thường dùng cách này)
+### Lấy value ra ngoài
+### Cách 1: (bình thường dùng cách này)
 
 	console.log(myInfo.name); 
 	
-###Cách 2:
+### Cách 2:
 
 	console.log(myInfo['name']);
 
@@ -1005,11 +1005,11 @@ Key không tồn tại thì trả về undefinded
 
 Không dùng `console.log(myInfo['myKey']);` vì nó sẽ tìm myKey trong object myInfo
 
-###Xóa age trong object myInfo
+### Xóa age trong object myInfo
 
 	delete myInfo.age;
 
-###Function nằm trong object
+### Function nằm trong object
 
 	var myInfo = {
 	  name: "Son Dang",
@@ -1022,7 +1022,7 @@ Không dùng `console.log(myInfo['myKey']);` vì nó sẽ tìm myKey trong objec
 	};
 	console.log(myInfo.getName());
 
-###Chú ý:
+### Chú ý:
 
 - Function nằm trong object gọi là phương thức (method)
 
@@ -1030,7 +1030,7 @@ Không dùng `console.log(myInfo['myKey']);` vì nó sẽ tìm myKey trong objec
 
 ---
 
-##Bài 39: Object Constructor
+## Bài 39: Object Constructor
 
 **Object Constructor** hay bản thiết kế, cấu trúc ban đầu của object
 
@@ -1045,13 +1045,13 @@ Không dùng `console.log(myInfo['myKey']);` vì nó sẽ tìm myKey trong objec
 	var user = new User('Vu', 'Nguyen', 'Avatar'); 
 ở đây, author hay user là object, còn User là object constructor.
 
-###Thêm thuộc tính vào đối tượng
+### Thêm thuộc tính vào đối tượng
 
 	author.title = 'Chia sẻ tại F8';
 	user.comment = 'Liệu có khoá'
 
 
-###Phương thức trong object
+### Phương thức trong object
 
 	function User(firstName, lastName, avatar) {
 	  this.firstName = firstName; 
@@ -1065,14 +1065,14 @@ Không dùng `console.log(myInfo['myKey']);` vì nó sẽ tìm myKey trong objec
 
 this trong phương thức là this của getName
 
-###Gọi phương thức ra như bình thường
+### Gọi phương thức ra như bình thường
 
 	console.log(author.getName());
 	console.log(user.getName());
 	
 ---
 
-##Bài 40: Object Prototype
+## Bài 40: Object Prototype
 
 **Object prototype** là thuộc tính cấu thành Object Constructor
 
@@ -1087,7 +1087,7 @@ this trong phương thức là this của getName
 
 ở đây `this.firstName = firstName` là 1 object prototype
 
-###Thêm 1 prototype vào Object constructor
+### Thêm 1 prototype vào Object constructor
 
 	User.prototype.className = 'F8';
 	User.prototype.getclassName = function() {
@@ -1098,7 +1098,7 @@ this trong phương thức là this của getName
 
 ---
 
-##Bài 41: Đối tượng Date
+## Bài 41: Đối tượng Date
 
 	var date = new Date();
 	var month = date.getMonth();
@@ -1116,13 +1116,13 @@ this trong phương thức là this của getName
 	console.log(`${day}/${month}/${year}`); // in ra full
 	ngày/tháng/năm
 
-###Documentation:
+### Documentation:
 [https://developer.mozilla.org/vi/docs/Web/JavaScript/Reference/Global_Objects/Date 
 ]()
 
 ---
 
-##Bài 42: Câu lệnh rẽ nhánh If - Else
+## Bài 42: Câu lệnh rẽ nhánh If - Else
 
 	var date = 4; // giá trị giao động từ 2-8
 	if (date === 2){
@@ -1137,7 +1137,7 @@ this trong phương thức là this của getName
 
 ---
 
-##Bài 43: Câu lệnh rẽ nhánh Switch – Case
+## Bài 43: Câu lệnh rẽ nhánh Switch – Case
 
 	var date = 10;
 	
@@ -1165,7 +1165,7 @@ this trong phương thức là this của getName
 
 ---
 
-##Bài 44: Toán tử 3 ngôi
+## Bài 44: Toán tử 3 ngôi
 
 	var course = {
 	    name: 'Javascript',
@@ -1175,14 +1175,14 @@ this trong phương thức là this của getName
 	console.log(result);
 
 **Cấu trúc: điều kiện ? case 1 : case 2**
-###Chú ý:
+### Chú ý:
 Sử dụng toán tử 3 ngôi trong những trường hợp đơn giản
 
 ---
 
-##Bài 46, 47, 48: Vòng lặp For
+## Bài 46, 47, 48: Vòng lặp For
 
-###Lặp với điều kiện đúng
+### Lặp với điều kiện đúng
 Ví dụ 1:
 
 	for (var i = 1; i <= 1000; i++) {
@@ -1205,11 +1205,11 @@ Ví dụ 2:
 
 ---
 
-##Bài 49: Vòng lặp For/in
+## Bài 49: Vòng lặp For/in
 
 Lặp qua từng key của đối tượng
 
-###Với Object
+### Với Object
 
 	var myInfo = {
 	    name: 'Son Dang',
@@ -1220,7 +1220,7 @@ Lặp qua từng key của đối tượng
 	    console.log(myInfo[key]);
 	}
 
-###Với Array
+### Với Array
 
 	var languages = [
 	    'Javascript',
@@ -1231,7 +1231,7 @@ Lặp qua từng key của đối tượng
 	    console.log(languages[key]);
 	}
 
-###Với String
+### Với String
 
 	var languages = 'Javascript';
 	for (var key in languages) {
@@ -1242,11 +1242,11 @@ In ra từng ký tự của chuỗi
 
 ---
 
-##Bài 50: Vòng lặp For/of
+## Bài 50: Vòng lặp For/of
 
 Lặp qua từng value của đối tượng
 
-###Với Array
+### Với Array
 
 	var languages = [
 	    'Javascript',
@@ -1257,7 +1257,7 @@ Lặp qua từng value của đối tượng
 	    console.log(value); // Lấy từng phần tử của 1 mang
 	}
 
-###Với String
+### Với String
 
 	var languages = 'Javascript';
 	for (var value of languages) {
@@ -1266,7 +1266,7 @@ Lặp qua từng value của đối tượng
 	
 In ra từng ký tự của chuỗi
 
-###Với Object
+### Với Object
 
 	var myInfo = {
 	        name: 'Son Dang',
@@ -1278,7 +1278,7 @@ In ra từng ký tự của chuỗi
 
 ----
 
-##Bài 51: Vòng lặp While
+## Bài 51: Vòng lặp While
 Ví dụ 1:
 
 	var i = 0;
@@ -1302,7 +1302,7 @@ Ví dụ 2:
 	
 --- 
 
-##Bài 52: Vòng lặp Do/While
+## Bài 52: Vòng lặp Do/While
 
 	var i = 0;
 	do {
@@ -1314,7 +1314,7 @@ Vòng lặp Do/While sẽ kiểm tra điều kiện vào lần thứ 2, lần đ
  
 
 
-###Bài toán:
+### Bài toán:
 Chức năng nạp thẻ cào, đôi khi mạng sẽ yếu sẽ không nạp thẻ thành công. Trong thực tế chúng ta sẽ có 3 lần nạp, sau 3 lần mới khóa.
 
 	var i = 0;
@@ -1330,9 +1330,9 @@ Chức năng nạp thẻ cào, đôi khi mạng sẽ yếu sẽ không nạp th�
 
 ---
 
-##Bài 53: Break và Continue trong vòng lặp
+## Bài 53: Break và Continue trong vòng lặp
 
-###In từ 0 đến 5
+### In từ 0 đến 5
 
 	for (var i = 0; i < 10; i++) {
 	    console.log(i);
@@ -1341,7 +1341,7 @@ Chức năng nạp thẻ cào, đôi khi mạng sẽ yếu sẽ không nạp th�
 	    }
 	}
 
-###In số chẵn
+### In số chẵn
 
 	for (var i = 0; i < 10; i++) {
 	  if (i % 2 !== 0) {
@@ -1355,7 +1355,7 @@ Chức năng nạp thẻ cào, đôi khi mạng sẽ yếu sẽ không nạp th�
 
 ---
 
-##Bài 54: Vòng lặp lòng nhau (Nested loop)
+## Bài 54: Vòng lặp lòng nhau (Nested loop)
 
 	var myArray = [
 	    [1, 2], 
@@ -1370,14 +1370,14 @@ Chức năng nạp thẻ cào, đôi khi mạng sẽ yếu sẽ không nạp th�
 
 ---
 
-##Bài 55: Thêm ví dụ về vòng lặp
-###In từ 100 về 1
+## Bài 55: Thêm ví dụ về vòng lặp
+### In từ 100 về 1
 
 	for (var i = 100; i > 0; i--) {
 	    console.log(i);
 	}
 
-###In ra các giá trị 0, 5, 10, 15
+### In ra các giá trị 0, 5, 10, 15
 
 	for (var i = 0; i <= 100; i += 5) {
 	  console.log(i);
@@ -1385,7 +1385,7 @@ Chức năng nạp thẻ cào, đôi khi mạng sẽ yếu sẽ không nạp th�
 
 ---
 
-###Bài 56: Làm việc với mảng (phần 2)
+### Bài 56: Làm việc với mảng (phần 2)
 
 	var courses = [
 	  {
@@ -1420,7 +1420,7 @@ Chức năng nạp thẻ cào, đôi khi mạng sẽ yếu sẽ không nạp th�
 	  },
 	];
 
-###1. forEach()
+### 1. forEach()
 	
 	courses.forEach(function(course, index) {
 	    console.log(index, course);
@@ -1431,14 +1431,14 @@ Chức năng nạp thẻ cào, đôi khi mạng sẽ yếu sẽ không nạp th�
 - Phương thức thì dùng dấu chấm
 - Hàm được truyền dưới dạng tham số được gọi là callback
 
-###2. Every()
+### 2. Every()
 **Chức năng: Kiểm tra tất cả phần tử của 1 mảng thỏa mãn 1 điều kiện gì đó**
 
 - every() trả về giá trị là boolean
 - Duyệt phần tử đầu tiên, nếu phần tử đầu tiên sai với điều kiện thì dừng và in ra False ngay lập tức
 - Nếu không thì vẫn cứ duyệt như thường đến khi nào tìm được False, không tìm ra ra False thì in True
 
-###Bài toán:
+### Bài toán:
 Bài toán đặt ra là kiểm tra xem toàn bộ khóa học này có phải là miễn phí hay không?
 Nếu có thì trả về True, không thì trả về False.
 
@@ -1447,7 +1447,7 @@ Nếu có thì trả về True, không thì trả về False.
 	}); // Check hết vòng trên, ra kết quả thì in dòng dưới này
 	console.log(isFree);
 
-###3. Some()
+### 3. Some()
 **Nếu 1 phần tử trong mảng thỏa mãn điều kiện thì in ra ngay là đúng mà không cần quan tâm đến những phần tử còn lại.**
 
 - some() trả về giá trị là boolean
@@ -1462,7 +1462,7 @@ Nếu có thì trả về True, không thì trả về False.
 	
 	console.log(isFree);
 
-###4. Find()
+### 4. Find()
 **Chức năng:
 - Tìm 1 phần tử thỏa mãn điều kiện trong mảng
 - Trả về duy nhất 1 phần tử, nếu có 1 phần tử khác đã trùng thì cũng chỉ trả về phần tử đầu tiên**
@@ -1474,7 +1474,7 @@ Nếu có thì trả về True, không thì trả về False.
 	}); // Check hết vòng trên, ra kết quả thì in dòng dưới này
 	console.log(course);
 
-###5. Filter()
+### 5. Filter()
 **Chức năng: Tìm tất cả các phần tử thỏa mãn 1 điều kiện trong mảng**
 	
 	var listCourse = courses.filter(function (course, index) {
