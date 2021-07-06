@@ -2314,3 +2314,1402 @@ Lấy ra `li` đầu tiên của class `child` đầu tiên
 	  var divelement1 = document.querySelector(".heading .child:nth-child(1) ul li:nth-child(1)");
 
 	
+---
+
+### Bài 77: DOM Attribute
+
+	<body>
+	    <h1 class="heading-text">Heading</h1>
+	    <a>Xin chào</a>
+	</body>
+	
+
+Lấy ra `h1` và `a`
+
+	var headingElement = document.querySelector("h1");
+	var aElement = document.querySelector("a");
+
+### 1. Thêm Attribute vào Element 
+a) Sử dụng gán (setter)
+
+Thêm attribute `title` có giá trị là `Heading` vào thẻ `h1`
+
+	headingElement.title = "Heading";
+
+Thêm attribute `class` có giá trị là `Heading` vào thẻ `h1`
+
+	headingElement.className = "Heading";
+
+Thêm attribute `href` có giá trị là `facebook.com ` vào thẻ `a`
+
+	aElement.href = "facebook.com";
+
+Chú ý: Với gán thì chúng ta chỉ thêm được những attribute hợp lệ với element đó, ví dụ thẻ `h1` thì thêm attribute `title` chứ không thêm được `href` 
+
+b) Sử dụng phương thức `setAttribute()`
+
+Phương thức `setAttribute()` nhận 2 đối số gồm `tên attribute` và `giá trị của attribute` đó.
+
+Thêm attribute `title` có giá trị là `Heading` vào thẻ `h1`
+
+	headingElement.setAttribute("title", "Heading");
+
+Thêm attribute `data-1` có giá trị là `heading` vào thẻ `h1`
+
+	headingElement.setAttribute("data-1", "heading");
+
+Chú ý: Với phương thức `setAttribute()` thì chúng ta có thể thêm những attribute không hợp lệ với element.
+
+### 2. Lấy ra giá trị của Attribute
+
+a) Lấy ra giá trị của Attribute hợp lệ với element
+
+	k = headingElement.title;
+b) Lấy ra giá trị của Attribute hợp lệ với element hoặc không hợp lệ với element
+
+	i = headingElement.getAttribute("class");
+	j = headingElement.getAttribute("title");
+	
+---
+
+## Bài 78: InnerText vs textContent Property
+
+	<body>
+	    <h1 class="heading">Heading text</h1>
+	</body>
+
+### Lấy ra nội dung trong Text node (getter)
+
+Lấy ra `h1` element và gán vào biến `headingElement`
+
+	var headingElement = document.querySelector(".heading");
+
+Lấy ra nội dung trong `h1` element:
+	
+	console.log(headingElement.innerText);
+	
+hoặc
+
+	console.log(headingElement.textContent);
+
+### Thay đổi nội dung trong Text node (setter)
+
+Thay đổi nội dung trong `h1` element thành `New heading`
+
+	headingElement.textContent = "New heading";
+	
+hoặc
+	
+	headingElement.innerText = "New heading";
+	
+### Sự khác nhau giữa innerText và textContent
+
+    <h1 class="heading">
+    
+        <span style="display:none">Heading</span>
+        <span>text</span>
+        
+         	<style>
+	           .box {
+	               width: 100px;
+	               height: 100px;
+	           }
+        	</style>
+        
+    </h1>
+    
+Khi sửa dụng Getter, `innerText` sẽ trả về nội dung giống với trên trình duyệt (với điều kiện là element đó chưa bị can thiệp, thay đổi nội dung bởi `setAttribute()`). Đồng thời bỏ qua các tag, không hiển thị các tag, ví dụ như `<p>` `</p>`. 
+
+Lấy ra nội dung trong `h1` element:
+
+	console.log(headingElement.innerText);
+	
+Kết quả trả về là: 
+
+	text
+	
+Khi sử dụng Getter, `textContent` sẽ trả về nội dung thật như trong source, từng khoảng trống, xuống hàng... và không bị các attribute khác chi phối. Đồng thời bỏ qua các tag, không hiển thị các tag, ví dụ như `<p>` `</p>`. 
+
+Lấy ra nội dung trong `h1` element:
+
+	console.log(headingElement.textContent);
+
+Kết quả trả về là:
+
+		̇	
+		
+		Heading
+		Text
+		
+		
+		.box {
+	               width: 100px;
+	               height: 100px;
+	           }
+	
+Tức là `textContent` sẽ trả về tất cả nội dung thật, bỏ qua các thẻ, chỉ lấy nội dung trong `Text Node`.
+	
+Lưu ý:
+
+- Kể cả `<style>`, `<meta>`, `<script>`, `<html>` hay bất kỳ thẻ gì, đã là thẻ (tag) thì đều là `Element Node`. Còn đã là nội dung nằm giữa `tag` thì đều là `Text Node`.
+- Nếu ở `Text Node` thì chúng ta không thể sử dụng `innerText` vì `innerText` là thuộc tính nằm trên `Element Node`. Nếu đứng ở `Text Node` mà gọi `innerText` thì sẽ trả về `undefinded`.
+- `textContent` sẽ là thuộc tính tồn tại trên `Element Node` và `Text Node`. Ví dụ, khi chúng ta lấy ra được `Text Node` thì chúng ta có thể sử dụng `textContent` để lấy ra nội dung của `Text Node` đó.
+
+---
+
+## Bài 79: InnerHTML vs OuterHTML Property
+
+`innerHTML` và `outerHTML` là 2 thuộc tính của `Element Node`.
+
+	<body>
+    <div class="box"></div>
+
+    <div class="heading">
+        <h1 title="Heading">New heading</h1>
+    </div>
+</body>
+
+### 1. innerHTML
+Lấy ra `box` element và lưu vào biến `boxElement`
+
+	var boxElement = document.querySelector(".box");
+	
+### `innerHTML` có thể thêm được `Text Node`, `Attribute Node`, `Element Node` vào Element
+
+a) Thêm vào `boxElement` 1 `Element Node`
+
+	boxElement.innerHTML = '<h1>Heading</h1>';
+		
+b) Thêm vào `boxElement` 1 `Text Node`
+
+	boxElement.innerHTML = 'Heading';
+
+c) Thêm vào `boxElement` 1 `Attribute Node`
+
+	boxElement.innerHTML = '<h1 title="Heading">Heading</h1>';
+	
+Kiểm tra xem `h1` Element đã tồn tại hay chưa?
+
+	console.log(document.querySelector("h1").innerText);
+	
+Lấy ra nội dung HTML của boxElement
+
+	console.log(boxElement.innerHTML);
+
+Replace nội dung của `h1` Element
+
+	boxElement.innerHTML = '<span>Test</span>';
+
+Nội dung trong `h1` Element sẽ được thay thế hoàn toàn bởi đoạn `<span>Test</span>`
+
+
+### 2. outerHTML
+a) Getter
+
+	console.log(boxElement.outerHTML);
+
+Lấy ra mã HTML, bao gồm mã của `boxElement`
+
+Kết quả:
+
+	<div class="box"><h1 title="Heading">Heading</h1></div>
+
+b) Setter
+
+Lấy ra `heading` element và lưu vào biến `headingElement`
+
+	var headingElement = document.querySelector(".heading");
+
+Replace `headingElement`
+
+	headingElement.outerHTML = '<span>Check</span>';
+
+Lúc này, `headingElement` gồm:
+
+	<div class="heading">
+	    <h1 title="Heading">New heading</h1>
+	</div>
+	
+sẽ được thay thành
+
+	<span> Check</span>
+
+Bây giờ, chúng ta thử lấy ra `headingElement` bằng:
+
+	console.log(headingElement);
+
+Kết quả trả về sẽ là 
+
+	<div class="heading">
+	    <h1 title="Heading">New heading</h1>
+	</div>
+
+Vì trước đó, `headingElement` đã được lưu vào bộ nhớ với kết quả trên, vì vậy bây giờ chúng ta in ra `headingElement` thì nó vẫn sẽ trả về kết quả được lưu vào bộ nhớ trước khi sử dụng `outerHTML`.
+
+Vì vậy, khi sử dụng `outerHTML` phải chú ý. Trong thực tế, rất hiếm khi sử dụng `outerHTML`.
+
+---
+
+## Bài 80: InnerHTML vs OuterHTML Property
+
+### Bài tập 1:
+
+
+	<div>
+	    <h1>Học JS DOM tại F8</h1>
+	    <h2>Làm bài tập tại F8</h2>
+	</div>
+
+Lấy `h1` element lưu vào biến `h1Element`
+
+	var h1Element = document.querySelector('h1');
+
+Từ biến `h1Element` hãy lấy tên thẻ (tag) của element này và lưu vào biến `h1TagName`
+
+	h1TagName = h1Element.nodeName;
+
+Lấy element ngang cấp kế tiếp của `h1Element` và lưu vào biến `h1NextElementSibling`
+
+	var h1NextElementSibling = h1Element.nextElementSibling;
+	
+
+### Bài tập 2:
+
+	<div>
+	    Text 1
+	    <h1>Học JS tại F8</h1>
+	    Text 2
+	</div>
+
+Lấy text node có content là `Text 1` và gán cho biến `textNode1`
+
+	var textNode1 = document.querySelector('div').childNodes[0];
+
+Lấy text node có content là `Text 2` và gán cho biến `textNode2`
+
+	var textNode2 = document.querySelector('div').childNodes[2];
+
+Lấy `h1` element node và gán cho biến `h1Element`
+
+	var h1Element = document.querySelector('div > h1');
+	
+---
+
+## Bài 81: DOM CSS
+
+	<body>
+		<div class="box"></div>
+	</body>
+
+Lấy ra `box` element và gán cho `boxElement`
+
+	var boxElement = document.querySelector(".box");
+
+Thêm CSS cho element
+
+Cách 1:
+
+	boxElement.style.width = "100px";
+	boxElement.style.height = "200px";
+	boxElement.style.backgroundColor = "red";
+
+Cách 2:
+
+	Object.assign(boxElement.style, {
+	  width: "100px",
+	  height: "200px",
+	  backgroundColor: "green",
+	});
+
+---
+
+## Bài 82: ClassList Property
+	
+ClassList là 1 thuộc tính của Element Node. Khi gọi đến ClassList, nó sẽ trả về cho chúng ta 1 đối tượng là DOMTokenList, giúp chúng ta quản lý được các class của Element.
+
+### Các phương thức thường sử dụng của ClassList
+
+Phương thức        	| Vai trò          	|
+--------------------|------------------	|
+add						|Thêm class vào element|
+contains				|Kiểm tra xem class có tồn tại trong element|
+remove					|Xóa class khỏi element|
+toggle					|có class thì gỡ bỏ, không có thì nó thêm vào element|
+
+### Ví dụ 1:
+
+	<body>
+		<div class="box box-2 box-3">
+		</div>
+	</body> 
+	
+Lấy ra `box` element và lưu vào `boxElement`
+
+	var boxElement = document.querySelector(".box");
+
+a) Lấy số lượng class của element
+
+	console.log(boxElement.classList.length);
+
+Kết quả:
+
+	3
+
+b) Lấy ra class theo index của element
+
+	console.log(boxElement.classList[0]);
+
+Kết quả:
+
+	0
+
+c) Trả về chuỗi class của element, kể cả khoảng trống giữa các class
+
+	console.log(boxElement.classList.value);
+
+Kết quả:
+
+	box box-2 box-3
+
+### 1. Phương thức add
+
+	<style>
+        .red {
+           color: red; 
+        }
+    </style>
+    
+    <div class="box box-2 box-3">
+    	<h1>CLASS LIST</h1>
+	</div>
+
+a) Thêm class `red` đã được định nghĩa phía trên vào `div` element
+
+	console.log(boxElement.classList.add('red'));
+
+Kết quả:
+
+Ở tab Element của trình duyệt sẽ hiện:
+
+	<div class="box box-2 box-3 red">
+    	<h1>CLASS LIST</h1>
+	</div>
+Đồng thời chữ **CLASS LIST** sẽ thành màu đỏ
+
+b) Thêm nhiều class vào `div` element
+
+	console.log(boxElement.classList.add('red', 'green', 'yellow'));
+
+### 2. Phương thức contains
+
+Trả về `true` nếu tồn tại class đó, trả về `false` nếu không tồn tại class đó trong element
+
+	console.log(boxElement.classList.contains("red"));
+	
+### 3. Phương thức remove
+
+	console.log(boxElement.classList.remove("red"));
+	
+### 4. Phương thức toggle
+
+Có class `red` thì gỡ bỏ, không có thì nó thêm `red` vào element
+
+	console.log(boxElement.classList.toggle("red"));
+
+---
+
+## Bài 83: DOM Events
+
+### 1. Attribute Events
+
+Nhấn vào Element `h1` sẽ chạy sự kiện là Math.random() - tạo ra 1 dãy số ngẫu nhiên
+
+	<body>
+	     <h1 onclick = "console.log(Math.random())">DOM Events</h1>
+	</body>
+
+Tất cả sự kiện DOM Events sẽ trả lại 1 từ khóa là this, this chính là Node Element mà chúng ta đang đứng hiện tại
+
+	<body>
+	    <h1 onclick = "console.log(this)">DOM Events</h1>
+	</body>
+
+Nhấn vào Element `h1` sẽ in ra luôn toàn bộ `h1` element trên console.
+
+Kết quả:
+
+	<h1 onclick = "console.log(this)">DOM Events</h1>
+	
+In ra text Content của `h1` element
+
+	<body>
+	    <h1 onclick = "console.log(this.textContent)">DOM Events</h1>
+	</body>
+
+**Sự kiện nổi bọt**
+Khi ta click vào con của 1 thẻ sử dựng DOM Event thì sự kiện onclick vẫn lọt vào. Đây gọi là `sự kiện nổi bọt`. Khi chúng ta click vào 1 element con của 1 element đang lắng nghe sự kiện. Đâu tiên nó sẽ lắng nghe lên sự kiện của thẻ con trước, sau đó nổi bọt ra ngoài, đến thẻ cha, ông đều ảnh hưởng.
+
+	<body>
+	    <h1 onclick = "console.log(this)">
+	        <span>DOM Events</span>
+	    </h1>
+	</body>
+
+Kết quả:
+
+	 <h1 onclick = "console.log(this)">
+	       <span>DOM Events</span>
+	 </h1>
+	 
+Tùy trường hợp mà chúng ta muốn `sự kiện nổi bọt` có diễn ra hay không.
+
+### 2. Assign event using the element node
+
+a) Nhấn vào Element `h1` sẽ chạy sự kiện là `Math.random()` - tạo ra 1 dãy số ngẫu nhiên
+
+	<body>
+	    <h1>
+	        <span>DOM Events</span>
+	    </h1>
+	</body>
+
+
+
+Lấy `h1` element và lưu vào biến `h1Element`
+
+	var h1Element = document.querySelector("h1");
+
+Sử dụng sự kiện `onclick` cùng với 1 function để chạy sự kiện `Math.random()`
+
+	h1Element.onclick = function () {
+	  console.log(Math.random());
+	};
+	
+b) Nhấn vào thẻ `<span>` nào thì sẽ hiện ra Text Content của `<span>` đó
+
+	<body>
+	    <h1>
+	        <span>DOM Events 1</span>
+	    </h1>
+	
+	    <h1>
+	        <span>DOM Events 2</span>
+	    </h1>
+	
+	    <h1>
+	        <span>DOM Events 3</span>
+	    </h1>
+	</body>
+
+Select hết tất cả `h1` Element
+
+	var h1Elements = document.querySelectorAll("h1");
+	
+Sử dụng vòng for, ứng với mỗi `index` của HTMLs Collection là i chạy từ 0 đến hết độ dài của `h1Elements`
+
+	for (var i = 0; i < h1Elements.length; ++i) {
+	  h1Elements[i].onclick = function (e) {
+	    console.log(e.target);
+	  };
+	}
+	
+`e` ở đây là `mouse event`, trong `mouse event` sẽ có thuộc tính `target` để lấy ra element đang lắng nghe DOM Event.
+
+---
+
+## Bài 84: DOM Events Example
+
+	<body>
+	    <input type="text">
+	    <input type="checkbox">
+	
+	    <select>
+	        <option value="1">1</option>
+	        <option value="2">2</option>
+	        <option value="3">3</option>
+	    </select>
+	</body>
+### 1. Input/select
+### 1.1. Thẻ input
+a) Lấy ra `input` element có `type = "text"` rồi lưu vào `inputElement`
+
+	var inputElement = document.querySelector('input[type="text"]');
+
+b) Dùng `onchange` để bắt sự kiện khi dữ liệu trong thẻ `input` thay đổi
+
+	inputElement.onchange = function (e) {
+	  console.log(e.target.value);
+	};
+	
+Kết quả:
+
+![](https://i.ibb.co/sPhTgGt/Screen-Shot-2021-07-04-at-20-11-25.png)
+
+Mỗi lần chúng ta di chuyển con trỏ ra khỏi thẻ input, thẻ input không còn hover nữa thì dữ liệu ở thẻ input sẽ được in ra console. Hoặc khi nhấn enter thì dữ liệu sẽ tự in ra console. Với điều kiện dữ liệu sau phải khác với dữ liệu trước (có sự thay đổi dữ liệu).
+
+c) Dùng `oninput` để bắt sự kiện khi dữ liệu trong thẻ `input` thay đổi
+	
+	inputElement.oninput = function (e) {
+	  console.log(e.target.value);
+	};
+
+Kết quả:
+
+![](https://i.ibb.co/RctZGwR/Screen-Shot-2021-07-04-at-20-15-55.png)
+
+Sự kiện `oninput` sẽ bắt bất kỳ thay đổi gì trong thẻ `input` và in ra console ngay lập tức.
+
+c) Lưu sự kiện vào 1 biến
+
+Chúng ta có thể tạo ra 1 biến, mỗi lần gõ vào thẻ input thì value sẽ được lưu vào biến này
+
+	var inputValue;
+	
+	inputElement.oninput = function (e) {
+	  inputValue  = e.target.value;
+	};
+
+Bây giờ, thử nhập giá trị và thẻ input, sau đó vào console in ra `inputValue` sẽ cho ra kết quả vừa lưu được từ thẻ input vào biến `inputValue`
+
+### 1.2. Checkbox
+
+a) Lấy ra `input` element có `type = "checkbox"` rồi lưu vào `inputElement`
+
+	var inputElement = document.querySelector('input[type="checkbox"]');
+
+
+b) Dùng `onchange` để bắt sự kiện khi `checkbox` được tích và không tích
+
+	inputElement.onchange = function (e) {
+	  console.log(e.target.checked);
+	};
+	
+Kết quả:
+
+![](https://i.ibb.co/2kPSmjZ/Screen-Shot-2021-07-04-at-20-41-52.png)
+
+Trả về `true` nếu `checkbox` được tích
+
+Trả về `false` nếu `checkbox` không tích
+
+### 1.3. Select
+
+a) Lấy ra `select` element rồi lưu vào biến `selectElement`
+
+	var inputElement = document.querySelector('select');
+	
+b) Dùng `onchange` để bắt sự kiện khi thẻ `select` được chọn.
+
+	inputElement.onchange = function (e) {
+	  console.log(e.target.value);
+	};
+
+Kết quả:
+
+![](https://i.ibb.co/z8t6V6N/Screen-Shot-2021-07-04-at-20-57-29.png)
+
+Trả về giá trị của attribute `value` trong thẻ `<option>`
+
+### 2. Key up/down
+
+	<input type="text">
+
+### 2.1 Key up
+Khi nhấn rồi thả ra thì sẽ bắt được sự kiện
+
+a) Lấy ra `input` element có `type = "text"` rồi lưu vào `inputElement`
+
+	var inputElement = document.querySelector('input[type="text"]');
+
+b) Dùng `onkeyup` để lấy được value khi nhấn phím bất kỳ xuống `input` rồi thả ra
+
+	inputElement.onkeyup = function (e) {
+	  console.log(e.target.value);
+	};
+
+Khi chúng ta nhấn rồi thả ra sẽ lấy được value, còn khi giữ phím thì vẫn chưa lấy được value ra console
+
+### 2.2 Key down
+Khi nhấn xuống sẽ bắt được sự kiện
+
+a) Lấy ra `input` element có `type = "text"` rồi lưu vào `inputElement`
+
+	var inputElement = document.querySelector('input[type="text"]');
+
+b) Dùng `onkeydown` để lấy được value khi nhấn phím bất kỳ xuống `input`
+
+	inputElement.onkeydown = function (e) {
+	  console.log(e.target.value);
+	};
+
+Khi chúng ta nhấn xuống sẽ lấy liền được value
+
+`onkeyup` và `onkeydown` thường không dùng để lấy value, thường thì lấy qua `onchange`,`oninput`.
+
+### Ứng dụng onkeyup/onkeydown vào thực tế
+Ví dụ: Khi ta nhấn 1 phím bất kỳ thì sẽ thực hiện 1 hành động nào đấy. Chẳng hạn khi hiện ra modal thông báo, chúng ta nhấn nút `esc` để thoát modal đó thì sử dụng kỹ thuật tương tự dưới đây.
+
+	inputElement.onkeyup = function (e) {
+	  console.log(e.which);
+	  switch (e.which) {
+	    case 27:
+	      console.log("exit");
+	      break;
+	  }
+	};
+
+Chúng ta sử dụng `console.log(e.which);` để check xem nút `esc` là số bao nhiêu bằng cách nhấn thử nút đó rồi hiện ra console, ở đây chúng ta check được `esc` là số 27. Với case là 27 thì sẽ thực hiện 1 hành động gì đó.
+
+Ngoải ra, chúng ta có thể sử dụng `onkeypress` để thực hiện chức năng enter để send message chẳng hạn. Lúc này, chỉ cần nhấn phím là đã thực hiện sự kiện đó, hoặc nhấn giữ phím thì sẽ thực hiện 1 loạt sự kiện. `onkeypress` không có tác dụng với nút `esc`.
+
+Chúng ta cũng có thể thay cho `inputElement` bằng `document` nếu muốn thực hiện hành động đó ở bất kỳ nơi nào trên trình duyệt thay vì chỉ thực hiện hành động đó ở `inputElement`
+---
+
+## Bài 85: PreventDefault và StopPropagation
+
+### 1. Prevent Default
+
+Loại bỏ hành vi mặc định của trình duyệt trên 1 thẻ HTML
+
+Bài toán 1: Nếu thuộc tính `href` của thẻ `<a>` chứa https://f8.edu.vn thì mới chuyển trang, còn không có thì không làm gì cả.
+
+	<body>
+	    <a href="https://f8.edu.vn">
+	    Học lập trình
+	    </a>
+	    <br>
+	    <a href="https://google.com.vn">
+	        Tìm kiếm
+	        </a>
+	</body>
+	
+Lấy ra HTMLs Collection chứa toàn bộ thẻ `<a>`
+
+	var aElements = document.querySelectorAll("a");
+
+Sử dụng vòng lặp lặp qua từng Element của `aElements`
+
+	for (var i = 0; i < aElements.length; ++i) {
+	  aElements[i].onclick = function (e) {
+	    if (!e.target.href.startsWith("https://f8.edu.vn")) {
+	      e.preventDefault();
+	    }
+	  };
+	}
+
+`preventDefault()` để loại bỏ hành vi mặc định của trình duyệt, hành vi mặc định ở đây là khi click vào thẻ `<a>` chứa `href` thì sẽ chuyển sang url ở trong `href`.
+
+Giải thích:
+
+Nếu thẻ `<a>` chứa `href` không bắt đầu bằng https://f8.edu.vn thì sẽ thực hiện hành động loại bỏ hành vi mặc định đã nói ở trên. Lúc này, trường hợp thẻ `<a>` chứa `href` là https://google.com.vn sẽ đúng với điều kiện nên bị loại bỏ hành vi mặc định. Còn thẻ `<a>` chứa `href` là https://f8.edu.vn thì vẫn chạy bình thường.
+
+Bài toán 2:
+
+	<head>
+	    <style>
+	        ul {
+	            display: none;
+	        }
+	        input:focus ~ ul {
+	            display: block;
+	        }
+	    </style>
+	</head>
+	<body>
+	    <input placeholder="Tìm kiếm">
+	    <ul>
+	        <li>Javascript</li>
+	        <li>PHP</li>
+	        <li>Golang</li>
+	    </ul>
+	</body>
+
+Giao diện:
+
+![](https://i.ibb.co/GWDCC4R/Screen-Shot-2021-07-05-at-10-08-30.png)
+
+Mặc định, thẻ `<ul>` sẽ biến mất, khi chúng ta focus vào ô input thì thẻ này sẽ hiện ra. Nó được thể hiện qua đoạn CSS dưới đây
+
+	ul {
+	    display: none;
+	}
+	input:focus ~ ul {
+	    display: block;
+	}
+		        	        
+Vấn đề đặt ra, bây giờ phải làm sao để khi nhấn vào thẻ `<ul>` thì sẽ in ra Element đó trên console mà không bị biến mất như hành vi mặc định. Còn khi rê chuột vào những vị trí không phải là thẻ `<ul>` thì vẫn biến mất bình thường.
+
+
+Lấy ra `<ul>` element rồi lưu vào biến `ulElement`
+
+	var ulElement = document.querySelector("ul");
+
+Khi click vào `ulElement` thì in ra `target` của nó.
+
+	ulElement.onclick = function (e) {
+	  console.log(e.target);
+	};
+
+Ngăn chặn hành vi mặc định ngay khi click chuột xuống `<ul>` (on mouse down)
+
+	ulElement.onmousedown = function (e) {
+	  e.preventDefault();
+	};
+
+
+### 2. Stop Propagation
+
+Loại bỏ sự kiện nổi bọt
+	
+	<body>
+	<div>
+	    DIV
+	    <button>Click me!</button>
+	</div>
+	</body>
+
+Chúng ta để 1 thẻ `<div>` bên ngoài và in ra chữ `DIV` nếu nhấn vào thẻ `<div>` này.
+
+	document.querySelector("div").onclick = function () {
+	  console.log("DIV");
+	};
+
+ Tiếp tục, lòng 1 `<button>` vào bên trong có tên là `Click me!` và khi nhấn vào button này thì in ra dòng chữ `Click me!`.
+ 
+	 document.querySelector("button").onclick = function () {
+	  console.log("Click me!");
+	};
+	
+Tuy nhiên, khi chúng ta click vào button `Click me!` thì nó lại in ra cả `DIV` và `Click me!`. Vì đây là sự kiện nổi bọt, khi chúng ta thực hiện hành vi ở element con thì nó sẽ tác động lên element cha.
+
+Chúng ta sẽ sử dụng `stopPropagation()` để ngăn chặn hành vi nổi bọt
+
+	document.querySelector("button").onclick = function (e) {
+	  e.stopPropagation();
+	  console.log("Click me!");
+	};
+
+---
+
+## Bài 86: Event listener
+
+Có lúc chúng ta sử dụng **DOM Event**, lúc thì sẽ sử dụng **Event listener**.
+
+Chúng ta sẽ đi vào xử lý 2 vấn đề sau:
+
+- Xử lý nhiều việc khi event xảy ra
+- Lắng nghe / hủy bỏ lắng nghe
+
+		<body>
+		    <button id="btn">Click me!</button>
+		</body>
+
+Lấy button element có `id = "btn"` và lưu vào `btn`
+
+### 1. Với DOM Events
+
+1.1. Xử lý nhiều việc khi event xảy ra
+
+	btn.onclick = function () {
+	  // Job 1
+	  console.log("Job 1");
+	  
+	  // Job 2
+	  console.log("Job 2");
+	};
+
+1.2. Lắng nghe / hủy bỏ lắng nghe
+
+a) Lắng nghe
+
+Click vào button, 3s đầu tiên không có điều gì xảy ra, nhưng sau 3s đó thì mới bắt đầu hoạt động
+
+	setTimeout(function () {
+	  btn.onclick = function () {
+	    // Job 1
+	    console.log("Job 1");
+	
+	    // Job 2
+	    console.log("Job 2");
+	  };
+	}, 3000);
+
+b) Hủy bỏ lắng nghe
+
+Ban đầu đang lắng nghe nhưng sau 3s không lắng nghe nữa.
+
+	btn.onclick = function () {
+	  // Job 1
+	  console.log("Job 1");
+	
+	  // Job 2
+	  console.log("Job 2");
+	};
+	
+	setTimeout(function () {
+	  btn.onclick = function () {};
+	}, 3000);
+	
+Chúng ta sẽ ghi đè bằng cách tạo 1 function rỗng và gán cho `onclick`.
+
+Ban đầu, `onclick` sẽ chạy 1 function làm các công việc nêu trên, sau đó gán cho `onclick` 1 function rỗng thì lúc này `onclick` sẽ không làm việc gì nữa.
+
+### 2. Với Event listener
+
+2.1. Lắng nghe / Xử lý 1 việc khi event xảy ra
+
+	btn.addEventListener("click", function (e) {
+	  console.log(Math.random());
+	});
+	
+`addEventListener()` nhận 2 đối số gồm: event name (bỏ on), 1 function callback
+
+
+2.2. Lắng nghe / Xử lý nhiều việc khi event xảy ra
+
+	btn.addEventListener("click", function (e) {
+	  console.log("Event 1");
+	});
+	btn.addEventListener("click", function (e) {
+	  console.log("Event 2");
+	});
+	btn.addEventListener("click", function (e) {
+	  console.log("Event 3");
+	});
+	
+Chúng ta có thể add event nhiều lần. Mỗi lần `addEventListener()` thêm vào 1 callback, thì callback đó đều được gọi theo thứ tự được thêm vào.
+
+Chúng ta cũng có thể triển khai như bên dưới để dễ nhìn hơn:
+
+	function job1() {
+	  console.log("Job 1");
+	}
+	
+	btn.addEventListener("click", job1);
+	
+2.3. Hủy bỏ lắng nghe
+
+Sau 3 giây thì sự kiện này không hoạt động nữa
+
+	setTimeout(function() {
+	  btn.removeEventListener('click', job1);
+	}, 3000);
+
+Để hủy bỏ lắng nghe, trước tiên chúng ta phải tách function ở đối số ra 1 function riêng, việc tách function cũng sẽ thuận tiện cho chúng ta trong việc Lắng nghe và hủy bỏ lắng nghe.
+
+Sử dụng DOM Event khi chúng ta muốn lắng nghe 1 sự kiện nào đó mà chúng ta không có nhu cầu gỡ bỏ sự kiện nó đi. Vẫn có thể xử lý nhiều việc khi event xảy ra, nếu phương thức nhiều quá rồi thì chuyển sang `Event Listener`
+
+Sử dụng Event Listener khi 1 sự kiện diễn ra nhưng chúng ta có nhu cầu hủy bỏ lắng nghe bằng `removeEventListener()`
+
+---
+
+## Bài 87: JSON là gì?
+
+
+**JSON (Javascript Object Notation)** là định dạng dữ liệu kiểu chuỗi.
+
+JSON hỗ trợ chuyển đổi các kiểu dữ liệu gồm: Number, String, Boolean, Null, Array, Object
+
+Cách bước chuyển đổi:
+
+- Stringify: Từ Javascript types -> JSON
+
+- Parse: Từ JSON -> Javascript types
+
+
+ Biểu diễn dưới dạng JSON| Kiểu dữ liệu|
+--------------------|------------------|
+var json = '["Javascript","PHP"]'| Array|
+var json = 'null'| null|
+var a = '"abc"'|String|
+var a = '1'|Number|
+var json = '{"name": "Son Dang", "age" : 18}'|Object|
+var a = "true"|Boolean|
+
+1. Cú pháp chuyển từ JSON sang Javascript types, sử dụng `parse()`
+	
+		var json = '{"name": "Son Dang", "age" : 18}';
+			
+		console.log(JSON.parse(json));
+2. Cú pháp chuyển từ Javascript types sang JSON, sử dụng `stringify()`
+
+a) Chuyển từ Number sang JSON
+
+	console.log(JSON.stringify(1));
+
+b) Chuyển từ Array sang JSON
+
+	console.log(JSON.stringify(['Javascript', 'PHP']));
+
+c) Chuyển từ Object sang JSON
+
+	console.log(
+	  JSON.stringify({
+	    name: 'Son Dang',
+	    age: 16,
+	  })
+	);
+
+
+---
+
+## Bài 88, 89: Promise (sync, async)
+
+### 1. Sync (đồng bộ)
+
+Ví dụ:
+
+	console.log(1);
+	console.log(2);
+
+Lệnh nào viết trước thì chạy trước, lệnh nào viết sao thì chạy sau, như vậy gọi là **đồng bộ**.
+
+### 2. Async (bất đồng bộ)
+
+	setTimeout(function () {
+	  console.log(1);
+	}, 1000);
+	
+	console.log(2);
+
+Theo tư duy đồng bộ, `console.log(1)` sẽ chạy trước, `console.log(2)` sẽ chạy sau.
+
+Khi chạy đến `setTimeout()`, nó sẽ ngủ 1s rồi in ra `console.log(1)`, sau đó in ra `console.log(2)`.
+
+Tuy nhiên khi in ra console thì nó lại in ra 2 trước và 1 sau, như thế này gọi là **bất đồng bộ**.
+
+Những hàm gây ra bất đồng bộ: `setTimeout`, `setInterval`, fetch, XML HttpRequest, đọc file, request animation frame. Chúng ta không biết khi nào nó hoàn thành xong.
+
+Trong Javascript, `callback` sẽ giúp chúng ta biết khi nào xong.
+
+Ví dụ ở `setTimeout()`, sau bao nhiêu giây đó sẽ in ra console. Khi in ra thì chúng ta biết nó đã hoàn thành.
+
+### 3. Các vấn đề khi sử dụng callback (callback hell)
+
+Hình minh họa cho callback hell
+
+![](https://static.wixstatic.com/media/1cd646_b30f0844aa7e4265ad6895a4b39cede7~mv2.png/v1/fill/w_699,h_355,al_c/1cd646_b30f0844aa7e4265ad6895a4b39cede7~mv2.png)
+
+Ví dụ: Viết hàm sao cho sau 1 giây in ra số 1, sau 1 giây tiếp theo in ra số 2, sau 1 giây tiếp theo in ra số 3
+
+	setTimeout(function () {
+	  console.log(1); // job 1
+	    setTimeout(function () {
+	      console.log(2); // job 2
+	        setTimeout(function () {
+	          console.log(3); // job 3
+	        });
+	    });
+	}, 1000);
+
+Đoạn code trên minh họa cho callback hell, chúng ta hiểu rằng function thứ 1 chạy thì function thứ 2 mới được, bởi vì để chạy function thứ 2 chúng ta cần dữ liệu trả về của function thứ 1. Vậy nên gây ra hiện tượng các function lòng nhau, ràng buộc nhau.
+
+## Bài 90: Promise (concept)
+
+**Promise** là 1 Object Constructor có sẵn trong Javascript ES6. Promise sinh ra để xử lý những thao tác bất đồng bộ. Lúc trước chưa có Promise thì chúng ta thường sử dụng callback nên mới gặp callback hell. Vậy nên khi nào gặp callback hell thì chúng ta sử dụng Promise.
+
+Chúng ta tạo 1 đối tượng `promise` từ **Promise Object Constructor**. Tiếp theo, truyền vào Promise 1 function.
+
+	var promise = new Promise(
+	  // Executor function
+	  // Executor trả về 2 function: resolve (thành công), reject (thất bại)
+	  function(resolve, reject) {
+	      // Logic
+	      // Thành công: resolve()
+	      // Thất bại: reject()
+	  }
+	);
+	
+Lưu ý: Trong Executor function phải có `resolve()` hoặc `reject()`, nếu không gọi thì `promise` sẽ bị treo, nằm ở trạng thái không thành công hay không thất bại, gây ra hiện tượng **memory leak** (rò rỉ bộ nhớ).
+
+`promise` sẽ trả về 3 phương thức gồm `.then()`, `.catch()` và `.finally()`, ở trong mỗi phương thức này đều nhận 1 callback.
+
+	promise
+	  .then(function() {
+	      // thành công lọt vào đây
+	  })
+	  .catch(function() {
+	      // thất bại thì lọt vào đây
+	  })
+	  .finally(function() {
+	      // thành công hay thất bại thì thực hiện 1 cái gì đó
+	  })
+
+- Khi `promise` có `resolve()` thì callback của `.then()` được gọi
+- Khi `promise` có `reject()` thì callback của `.catch()` được gọi
+- Khi `promise` có 1 trong 2 phương thức `resolve()` hoặc `reject()` được gọi thì `.finally()` đều được gọi
+
+Ví dụ:
+
+	var promise = new Promise(
+	  function(resolve, reject) {
+	    resolve();
+	  }
+	);
+	
+	promise
+	  .then(function() {
+	    console.log('Thành công!');
+	  })
+	  .catch(function() {
+	    console.log('Thất bại!');
+	  })
+	  .finally(function() {
+	    console.log('Hoàn thành!');
+	  })
+
+`promise` có 3 trạng thái:
+
+1. Pending: đang chờ `resolve()` hay `reject()`
+2. Fulfilled: Executor function chứa `resolve()` thì thành công, lọt vào `.then()` và `.finally()`
+3. Rejected Executor function chứa `reject()` thì thất bại, lọt vào `.catch()` và `.finally()`
+
+Kết quả:
+
+![](https://i.ibb.co/y8s3r8R/Screen-Shot-2021-07-06-at-00-41-33.png)
+
+### Resolve dữ liệu
+
+Khi `resolve()` thì chúng ta có thể trả lại bất cứ giá trị gì. Ví dụ chúng ta chúng ta call API.
+
+Ở đây chúng ta fake call API. Truyền vào `resolve()` 1 mảng chứa key, value như bên dưới. Phía callback của `.then()` chúng ta truyền vào `courses` và in ra `courses` (`courses` là tự đặt)
+
+	var promise = new Promise(function(resolve, reject) {
+	  //Fake call API
+	  resolve([
+	    {
+	      id: 1,
+	      name: "Javascript",
+	    },
+	  ]);
+	});
+	
+	promise
+	  .then(function(courses) {
+	    console.log(courses);
+	  })
+	  .catch(function() {
+	    console.log("Thất bại!");
+	  })
+	  .finally(function() {
+	    console.log("Hoàn thành!");
+	  });
+	  
+Kết quả:
+
+![](https://i.ibb.co/cvhg2Jx/Screen-Shot-2021-07-06-at-00-56-56.png)	  
+### Reject
+
+ Truyền vào `reject()` 1 thông báo. Phía callback của `.catch()` chúng ta truyền vào `error` và in ra `error ` (`error ` là tự đặt)
+
+	var promise = new Promise(function (resolve, reject) {
+	  reject('Có lỗi!');
+	});
+	
+	promise
+	  .then(function(courses) {
+	    console.log(courses);
+	  })
+	  .catch(function(error) {
+	      console.log(error);
+	  })
+	  .finally(function() {
+	    console.log("Hoàn thành!");
+	  });
+
+Kết quả:
+
+![](https://i.ibb.co/7XD0Dx4/Screen-Shot-2021-07-06-at-00-55-21.png)
+
+---
+
+## Bài 91: Promise (chain)
+
+	var promise = new Promise(function (resolve, reject) {
+	  //Fake call API
+	  resolve();
+	});
+	
+	promise
+		// function 1
+	  .then(function () {
+	    return 1;
+	  })
+	  	// function 2
+	  .then(function (data) {
+	    console.log(data);
+	    return 2;
+	  })
+	   // function 3
+	  .then(function (data) {
+	    console.log(data);
+	  })
+	  .catch(function (error) {
+	    console.log(error);
+	  })
+	  .finally(function () {
+	    console.log("Hoàn thành!");
+	  });
+	  
+Kết quả của `function 1` là tham số đầu vào của `function 2`, kết quả của `function 2` là tham số đầu vào của `function 3`.
+
+Nó hoạt động theo chuỗi, tức là nó sẽ chạy hết `function 1` thì mới chạy đến `function 2`.
+
+### Trường hợp ở `function 1` không return về gì thì nó sẽ chạy ngay xuống `function 2` và `function 2` sẽ trả về undefinded
+
+var promise = new Promise(function (resolve, reject) {
+	  //Fake call API
+	  resolve();
+	});
+	
+	promise
+		// function 1
+	  .then(function () {
+	  
+	  })
+	  	// function 2
+	  .then(function (data) {
+	    console.log(data);
+	  })
+	  .catch(function (error) {
+	    console.log(error);
+	  })
+	  .finally(function () {
+	    console.log("Hoàn thành!");
+	  });
+
+Kết quả: 
+
+![](https://i.ibb.co/Y8w7Wzp/Screen-Shot-2021-07-06-at-11-46-28.png)
+
+In ra `undefinded` ở console là do `function 2` in ra.
+
+
+### Trường hợp function 1 return ra 1 `new Promise`
+
+	var promise = new Promise(function (resolve, reject) {
+		  //Fake call API
+		  resolve();
+		});
+		
+	promise
+	  // function 1
+	  .then(function () {
+	    return new Promise(function(resolve) {
+	      setTimeout(resolve, 3000);
+	    })
+	  })
+	  // function 2
+	  .then(function (data) {
+	    console.log(data);
+	  })
+	  .catch(function (error) {
+	    console.log(error);
+	  })
+	  .finally(function () {
+	    console.log("Hoàn thành!");
+	  });
+
+Khi `function 1` return ra 1 new Promise thì nó phải chờ cho `function 1` xử lý xong mới chạy đến `function 2`.
+
+Kết quả: 
+
+![](https://i.ibb.co/Y8w7Wzp/Screen-Shot-2021-07-06-at-11-46-28.png)
+
+3 giây sau mới in ra `undefinded` vì nó phải chờ `function 1` xử lý xong Promise
+
+### New Promise trong `function 1` resolve ra dữ liệu
+
+	var promise = new Promise(function (resolve, reject) {
+		  //Fake call API
+		  resolve();
+		});
+		
+	promise
+	  // function 1
+	  .then(function () {
+	    return new Promise(function (resolve) {
+	      setTimeout(resolve([1, 2, 3]), 3000);
+	    });
+	  })
+	  // function 2
+	  .then(function (data) {
+	    console.log(data);
+	  })
+	  .catch(function (error) {
+	    console.log(error);
+	  })
+	  .finally(function () {
+	    console.log("Hoàn thành!");
+	  });
+	  
+Kết quả:
+
+![](https://i.ibb.co/98tpPxY/Screen-Shot-2021-07-06-at-12-27-59.png)
+
+Lúc này `function 2` sẽ nhận dữ liệu từ `function 1` và in ra như bình thường
+
+
+Bài toán: Viết hàm sao cho sau 1 giây in ra số 1, sau 1 giây tiếp theo in ra số 2, sau 1 giây tiếp theo in ra số 3
+
+	function sleep(ms) {
+	  return new Promise(function (resolve) {
+	    setTimeout(resolve, ms);
+	  });
+	}
+	
+	sleep(1000)
+	  .then(function () {
+	    console.log(1);
+	    return sleep(1000);
+	  })
+	
+	  .then(function () {
+	    console.log(2);
+	    return sleep(1000);
+	  })
+	
+	  .then(function () {
+	    console.log(3);
+	    return sleep(1000);
+	  });
+	  
+- Tạo 1 function có tham số là `ms`, return về 1 Promise. Promise này nằm ở trạng thái `resolve`. Chúng ta sử dụng `setTimeout()`, truyền vào `setTimeout()` 2 đối số gồm `resolve` và `ms`. Promise sẽ chạy thành công sau 1 khoảng thời gian là `setTimeout()`
+- Chúng ta chạy `sleep()` và truyền vào `1000` là giá trị của `ms`. Lúc này `sleep()` trả về cho chúng ta 1 promise nên chúng ta có thể sử dụng `.then()`
+- Ở trong function của `.then()` chúng ta tiếp tục return `sleep(1000)`, vì `sleep(1000)` là 1 `promise`, khi chạy `console.log()` xong, nó phải chờ chạy xong `promise` (tức là `sleep(1000)`) xong đã rồi mới chạy tiếp xuống `.then()` tiếp theo.
+
+Kết quả:
+
+![](https://i.ibb.co/sq8w6ch/Screen-Recording-2021-07-06-at-13-53-13.gif)
+
+---
+
+## Bài 92: Promise methods (resolve, reject, all)
+
+Không phải lúc nào chương trình cũng sẽ resolve, có thể có lúc bị reject. Ví dụ, hệ thống đang chạy mà bị ngắt mạng thì làm quá trình chạy bị lỗi, nên không bao giờ resolve hoàn toàn.
+
+	function sleep(ms) {
+	  return new Promise(function (resolve) {
+	    setTimeout(resolve, ms);
+	  });
+	}
+	
+	sleep(1000)
+	  .then(function () {
+	    console.log(1);
+	    return sleep(1000);
+	  })
+	
+	  .then(function () {
+	    console.log(2);
+	    return new Promise(function (resolve, reject) {
+	      reject('Có lỗi!');
+	    });
+	  })
+	
+	  .then(function () {
+	    console.log(3);
+	    return sleep(1000);
+	  })
+	
+	  .catch(function(error){
+	    console.log(error);
+	  })
+	 
+Ở đây, chúng ta cho `.then() 2` return về 1 promise bị reject. Lúc này, chương trình sẽ chạy hết `.then() 1` rồi chạy đến `.then() 2`, sau đó sinh ra lỗi và không chạy vào các `.then()` tiếp theo nữa mà chạy vào `.catch()` và in ra lỗi.
+
+### 1. Promise.resolve()
+
+Trong thực tế sẽ có những Promise luôn resolve(). Thì chúng ta có thể sử dụng `Promise.resolve()`
+
+	var promise = Promise.resolve("Success!");
+	
+	promise
+	  .then(function (data) {
+	    console.log(data);
+	  })
+	  
+	  .finally(function () {
+	    console.log("Done");
+	  });
+
+### 2. Promise.reject()
+
+Cũng sẽ có những Promise luôn reject(). Thì chúng ta có thể sử dụng `Promise.reject()`
+
+	var promise = Promise.reject("Error!");
+	
+	promise
+	  .catch(function(error){
+	    console.log(error);
+	  })
+	  
+	  .finally(function () {
+	    console.log("Done");
+	  });
+
+### 2. Promise.all()
+
+Thông thường, các logic phụ thuộc nhau thì có thể viết gọn bằng Promise. Ví dụ các logic bất đồng bộ nhưng không phụ thuộc nhau thì chúng ta sẽ muốn nó chạy song song nhưng vẫn lấy được kết quả của các logic này để làm việc với nhau thì chúng ta sử dụng `Promise.all()`
+
+
+
+Bài toán: Cho mảng 1 gồm [1], mảng 2 gồm [2, 3]. Hợp nhất 2 mảng thành 1 mảng [1, 2, 3].
+
+a) Với trường hợp `resolve()`
+
+	var promise1 = new Promise(function (resolve) {
+	  setTimeout(function () {
+	    resolve([1]);
+	  }, 2000);
+	});
+	
+	var promise2 = new Promise(function (resolve) {
+	  setTimeout(function () {
+	    resolve([2, 3]);
+	  }, 5000);
+	});
+	
+Ta thấy rằng, 2 promise này không phụ nhau nên chúng ta không cần nó chạy nối đuôi nhau, mất thời gian. Thay vì vậy chúng ta có thể cho 2 promise này chạy song song, sẽ mất 5s thay vì 7s bằng cách sử dụng `Promise.all()`
+
+	Promise.all([promise1, promise2])
+	  .then(function (result) {
+	    var result1 = result[0];
+	    var result2 = result[1];
+	    console.log(result1.concat(result2));
+	  });
+	  
+Chúng ta có thể viết gọn hơn như sau:
+
+	Promise.all([promise1, promise2])
+	  .then(function ([result1, result2]) {
+	    console.log(result1.concat(result2));
+	  });
+
+b) Với trường hợp `reject()`
+
+	var promise1 = new Promise(function (resolve) {
+	  setTimeout(function () {
+	    resolve([1]);
+	  }, 2000);
+	});
+	
+	var promise = Promise.reject("Error!");
+
+	Promise.all([promise1, promise2])
+	  .then(function ([result1, result2]) {
+	    console.log(result1.concat(result2));
+	  })
+	  
+	.catch(function(error){
+	 console.log(error);
+	 });
+	 
+Chỉ cần có 1 `promise` bị `reject()` thì sẽ không thực hiện các cộng việc còn lại nữa.
+
+---
+
+### Bài 93: Promise example
+
+
+
